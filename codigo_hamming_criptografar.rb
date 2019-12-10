@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative 'funcoes.rb'
+require_relative 'funcoes_criptografar.rb'
 
 p 'Digite a sequência de bits que representa a mensagem'
 mensagem = gets.chomp.split('')
@@ -23,7 +23,7 @@ if caracteres_irregulares.nil? || caracteres_irregulares.empty?
     posicao_bits_de_dados.append(index + 1) unless bit.include?('v')
   end
 
-  # 
+  # preenche a lista debits de verificacao com seus devidos bits de dados
   bits_de_dados_para_cada_de_verificacao(mensagem, posicao_bits_de_dados, posicao_bits_de_verificacao, bits_de_verificacao,  bits_de_verificacao_valor)
 
   valor_bits_verificacao(mensagem, bits_de_verificacao_valor, paridade)
