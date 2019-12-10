@@ -51,3 +51,12 @@ def valor_bits_verificacao(mensagem, bits_de_verificacao_valor, paridade)
     end
   end
 end
+
+def hash_in_string(hash)
+  string = ''
+  hash.each do |i|
+    string += "#{i[0]} => #{i[1].join(', ')}; "
+  end
+
+  string
+end
