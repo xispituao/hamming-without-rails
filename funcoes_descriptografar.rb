@@ -25,3 +25,28 @@ def soma_dos_bits_de_dados_para_cada_de_verificacao(mensagem, posicoes_dos_bits_
     end
   end
 end
+
+def bits_error(mensagem, posicoes_dos_bits_de_verificacao_com_soma, paridade)
+  bit_de_verificacao_com_erro = []
+
+  posicoes_dos_bits_de_verificacao_com_soma.each do |bit|
+    soma = mensagem[(bit[0].to_i) - 1].to_i + bit[1].to_i
+    p soma
+    if paridade == 'par'
+      bit_de_verificacao_com_erro.append(bit[0].to_s.to_i) unless soma.even?
+    else
+      bit_de_verificacao_com_erro.append(bit[0].to_s.to_i) if soma.even?
+    end
+  end
+
+  bit_de_verificacao_com_erro
+end
+
+def hash_in_string(hash)
+  string = ''
+  hash.each do |i|
+    string += "#{i[0]} => #{i[1]}; "
+  end
+
+  string
+end
